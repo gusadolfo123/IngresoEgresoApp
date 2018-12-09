@@ -1,0 +1,13 @@
+
+
+ng g c auth/login --spec=false -is
+ng g c auth/register --spec=false -is
+ng g c dashboard --spec=false -is
+ng g c ingreso-egreso --spec=false -is
+ng g c ingreso-egreso/estadistica --spec=false -is
+ng g c ingreso-egreso/detalle --spec=false -is
+ng g c shared/footer --spec=false -is
+ng g c shared/navbar --spec=false -is
+ng g c shared/sidebar --spec=false -is
+npm i bootstrap --save
+
