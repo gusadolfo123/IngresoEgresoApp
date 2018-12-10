@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {User} from '../interfaces/user.interface';
 import {AngularFireAuth} from '@angular/fire/auth';
-import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +12,7 @@ export class AuthService {
     password: '',
   };
 
-  constructor(private afAuth: AngularFireAuth, private router: Router) {}
+  constructor(private afAuth: AngularFireAuth) {}
 
   register(user: User) {
     return this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
