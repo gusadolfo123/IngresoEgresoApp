@@ -16,5 +16,11 @@ npm install firebase @angular/fire --save
 
 configurar en app.module
 
+creacion Servicio para conectar con firebase
+ng g s services/auth --spec=false is
+
+Para Alertas
+npm install sweetalert2
+
 
 
