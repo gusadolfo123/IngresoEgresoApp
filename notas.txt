@@ -11,3 +11,10 @@ ng g c shared/navbar --spec=false -is
 ng g c shared/sidebar --spec=false -is
 npm i bootstrap --save
 
+Comunicar angular con firebase
+npm install firebase @angular/fire --save
+
+configurar en app.module
+
+
+
