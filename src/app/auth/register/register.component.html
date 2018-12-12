@@ -18,8 +18,12 @@
                 required />
             </div>
             <div class="form-group">
-              <button [disabled]="formRegister.invalid" class="btn btn-primary submit-btn btn-block">
+              <button *ngIf="!loading" [disabled]="formRegister.invalid" class="btn btn-primary submit-btn btn-block">
                 Crear cuenta
+              </button>
+              <button *ngIf="loading" [disabled]="true" class=" btn btn-primary submit-btn btn-block">
+                <i class="fa fa-spin fa-sync"></i>
+                Procesando...
               </button>
             </div>
             <div class="text-block text-center my-3">

@@ -1,8 +1,6 @@
 import {Injectable} from '@angular/core';
 import {User} from '../interfaces/user.interface';
 import {AngularFireAuth} from '@angular/fire/auth';
-import {map} from 'rxjs/operators';
-import {Router} from '@angular/router';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {UserModel} from '../auth/user.model';
 
@@ -10,10 +8,10 @@ import {UserModel} from '../auth/user.model';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private afAuth: AngularFireAuth, private router: Router, private afDb: AngularFirestore) {}
+  constructor(private afAuth: AngularFireAuth, private afDb: AngularFirestore) {}
 
   initAuthListener() {
-    this.afAuth.authState.subscribe(fbUser => {
+    return this.afAuth.authState.subscribe(fbUser => {
       console.log(fbUser);
     });
   }

@@ -16,8 +16,15 @@
                 required />
             </div>
             <div class="form-group">
-              <button [disabled]="formLogin.invalid" class="btn btn-primary submit-btn btn-block">Login</button>
+              <button *ngIf="!loading" [disabled]="formLogin.invalid" class="btn btn-primary submit-btn btn-block">
+                Login
+              </button>
+              <button *ngIf="loading" [disabled]="true" class=" btn btn-primary submit-btn btn-block">
+                <i class="fa fa-spin fa-sync"></i>
+                Procesando...
+              </button>
             </div>
+
             <div class="text-block text-center my-3">
               <span class="text-small font-weight-semibold">No estas registrado? </span> <br />
               <a [routerLink]="['/register']" routerLinkActive="router-link-active" class="text-black text-small">Crear

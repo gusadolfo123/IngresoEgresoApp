@@ -22,9 +22,11 @@ ng g s services/auth --spec=false
 Para Alertas
 npm install sweetalert2
 
-
 Agregar Guard para proteger rutas
 ng g s guards/authGuard --spec=false 
+
+Instalar ngrx/store
+npm i @ngrx/store
 
 
 

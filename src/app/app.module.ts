@@ -19,6 +19,9 @@ import {FooterComponent} from './shared/footer/footer.component';
 import {NavbarComponent} from './shared/navbar/navbar.component';
 import {SidebarComponent} from './shared/sidebar/sidebar.component';
 import {environment} from '../environments/environment';
+import {StoreModule} from '@ngrx/store';
+import {AppReducers} from './app.reducers';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,8 @@ import {environment} from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    StoreModule.forRoot(AppReducers),
+    NgxSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
