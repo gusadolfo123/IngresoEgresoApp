@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   ) {}
 
   loading: boolean;
-  subscription: Subscription;
+  subscription: Subscription = new Subscription();
 
   ngOnInit() {
     this.subscription = this.store.select('UI').subscribe(ui => {

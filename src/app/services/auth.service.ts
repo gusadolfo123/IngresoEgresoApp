@@ -13,8 +13,13 @@ import {Subscription} from 'rxjs';
 })
 export class AuthService {
   private UserSubscription: Subscription = new Subscription();
+  private usuario: UserModel;
 
   constructor(private afAuth: AngularFireAuth, private afDb: AngularFirestore, private store: Store<AppState>) {}
+
+  getUser() {
+    return {...this.usuario};
+  }
 
   initAuthListener() {
     this.afAuth.authState.subscribe(fbUser => {
@@ -25,9 +30,11 @@ export class AuthService {
           .subscribe((usrObj: any) => {
             const newUser = new UserModel(usrObj);
             this.store.dispatch(new SetUserAction(newUser));
+            this.usuario = newUser;
           });
       } else {
         this.UserSubscription.unsubscribe();
+        this.usuario = null;
       }
     });
   }
