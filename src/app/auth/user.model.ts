@@ -1,11 +1,18 @@
+interface DataObj {
+  uid: string;
+  email: string;
+  nombre: string;
+}
+
 export class UserModel {
   public nombre: string;
   public email: string;
   public uid: string;
 
-  constructor(nombre: string, email: string, uid: string) {
-    this.nombre = nombre;
-    this.email = email;
-    this.uid = uid;
+  constructor(obj: DataObj) {
+    const {nombre, email, uid} = obj;
+    this.nombre = (obj && nombre) || null;
+    this.email = (obj && email) || null;
+    this.uid = (obj && uid) || null;
   }
 }
