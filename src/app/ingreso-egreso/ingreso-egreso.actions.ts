@@ -8,7 +8,7 @@ export enum IngresoEgresoActionTypes {
 
 export class SetItemsAction implements Action {
   readonly type = IngresoEgresoActionTypes.Set_Item;
-  constructor(public item: IngresoEgresoModel) {}
+  constructor(public items: IngresoEgresoModel[]) {}
 }
 
 export class UnsetItemsAction implements Action {

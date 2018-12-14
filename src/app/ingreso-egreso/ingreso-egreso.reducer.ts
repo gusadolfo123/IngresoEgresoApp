@@ -2,17 +2,25 @@ import {IngresoEgresoModel} from './ingreso-egreso.model';
 import * as fromIngEre from './ingreso-egreso.actions';
 
 export interface IngresoEgresoState {
-  ingresoEgreso: IngresoEgresoModel;
+  items: IngresoEgresoModel[];
 }
 
 const initialState: IngresoEgresoState = {
-  ingresoEgreso: null,
+  items: [],
 };
 
 export function IngresoEgresoReducer(state = initialState, action: fromIngEre.Actions): IngresoEgresoState {
   switch (action.type) {
     case fromIngEre.IngresoEgresoActionTypes.Set_Item:
-      return {ingresoEgreso: {...action.item}};
+      return {
+        items: [
+          ...action.items.map(item => {
+            return {...item};
+          }),
+        ],
+      };
+    case fromIngEre.IngresoEgresoActionTypes.Unset_Items:
+      return {items: []};
     default:
       return state;
   }

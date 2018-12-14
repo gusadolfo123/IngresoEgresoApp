@@ -23,6 +23,7 @@ import {environment} from '../environments/environment';
 import {StoreModule} from '@ngrx/store';
 import {AppReducers} from './app.reducers';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import { OrdenIngresoEgresoPipe } from './ingreso-egreso/orden-ingreso-egreso.pipe';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {NgxSpinnerModule} from 'ngx-spinner';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
+    OrdenIngresoEgresoPipe,
   ],
   imports: [
     BrowserModule,

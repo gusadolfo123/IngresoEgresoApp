@@ -33,3 +33,7 @@ Reactive Forms
 
 Servicio de IngresoEgreso
 ng g s services/IngresoEgreso --spec=false
+
+
+
+ng g p ingreso-egreso/orden-ingreso-egreso --spec=false
