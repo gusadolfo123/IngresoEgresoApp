@@ -5,8 +5,9 @@ import {AngularFirestore} from '@angular/fire/firestore';
 import {UserModel} from '../auth/user.model';
 import {Store} from '@ngrx/store';
 import {AppState} from '../app.reducers';
-import {SetUserAction} from '../auth/auth.actions';
+import {SetUserAction, UnsetUserAction} from '../auth/auth.actions';
 import {Subscription} from 'rxjs';
+import {UnsetItemsAction} from '../ingreso-egreso/ingreso-egreso.actions';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +15,7 @@ import {Subscription} from 'rxjs';
 export class AuthService {
   private UserSubscription: Subscription = new Subscription();
   private usuario: UserModel;
+  private IngEgreSubs: Subscription = new Subscription();
 
   constructor(private afAuth: AngularFireAuth, private afDb: AngularFirestore, private store: Store<AppState>) {}
 
@@ -22,7 +24,7 @@ export class AuthService {
   }
 
   initAuthListener() {
-    this.afAuth.authState.subscribe(fbUser => {
+    this.IngEgreSubs = this.afAuth.authState.subscribe(fbUser => {
       if (fbUser) {
         this.UserSubscription = this.afDb
           .doc(`${fbUser.uid}/usuario`)
@@ -37,6 +39,12 @@ export class AuthService {
         this.usuario = null;
       }
     });
+  }
+
+  cancelarSubscripciones() {
+    this.UserSubscription.unsubscribe();
+    this.IngEgreSubs.unsubscribe();
+    this.store.dispatch(new UnsetItemsAction());
   }
 
   register(usuario: User) {
@@ -56,6 +64,8 @@ export class AuthService {
   }
 
   logout() {
+    this.store.dispatch(new UnsetItemsAction());
+    this.store.dispatch(new UnsetUserAction());
     return this.afAuth.auth.signOut();
   }
 

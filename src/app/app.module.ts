@@ -23,8 +23,8 @@ import {environment} from '../environments/environment';
 import {StoreModule} from '@ngrx/store';
 import {AppReducers} from './app.reducers';
 import {NgxSpinnerModule} from 'ngx-spinner';
-import { OrdenIngresoEgresoPipe } from './ingreso-egreso/orden-ingreso-egreso.pipe';
-
+import {OrdenIngresoEgresoPipe} from './ingreso-egreso/orden-ingreso-egreso.pipe';
+import {ChartsModule} from 'ng2-charts/ng2-charts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +53,7 @@ import { OrdenIngresoEgresoPipe } from './ingreso-egreso/orden-ingreso-egreso.pi
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
     NgxSpinnerModule,
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
