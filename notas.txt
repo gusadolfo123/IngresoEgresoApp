@@ -42,3 +42,9 @@ ng g p ingreso-egreso/orden-ingreso-egreso --spec=false
 Para graficar
 npm install ng2-charts --save
 
+
+Generar Modulos
+ng g m shared --spec=false
+ng g m ingreso-egreso --spec=false
+
+ng g m dashboard/dashboardRouting --spec=false
