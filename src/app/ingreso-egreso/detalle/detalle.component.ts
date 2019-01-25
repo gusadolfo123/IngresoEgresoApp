@@ -1,12 +1,13 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {AppState} from '../../app.reducers';
+// import {AppState} from '../../app.reducers';
 import {IngresoEgresoModel} from '../ingreso-egreso.model';
 import {Subscription} from 'rxjs';
 import {IngresoEgresoService} from '../../services/ingreso-egreso.service';
 import Swal from 'sweetalert2';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {ActivarLoadingAction, DesactivarLoadingAction} from '../../shared/ui.actions';
+import {AppState} from '../ingreso-egreso.reducer';
 
 @Component({
   selector: 'app-detalle',
